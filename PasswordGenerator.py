@@ -29,14 +29,14 @@ def ClipboarbFunc():
 
 #Copy Success Alert
 def CopyAlert():
-    alert_label = Label(bottom_frame, text= 'Copied to clipboard')
+    alert_label = Label(bottom_frame, text= 'Copied to clipboard', pady=5) #Pady=5 super scuffed way to bypass stacking labels
     alert_label.pack()
     alert_label.after(3500, alert_label.destroy)
 
 #Create Window
 fastPass = 0
 window = Tk()
-window.title('Password Generator v0.2')
+window.title('Password Generator v1.0')
 window.geometry('300x110')
 window.resizable(False, False)
 #Intialize Variables
@@ -45,7 +45,7 @@ password_string = StringVar()
 #Objects Area
 input_frame = Frame(master = window, pady= 10)
 generateButton = Button(master = input_frame, text='Generate')
-password_label = Label(master=input_frame, textvariable= password_string, font=('Calibri 20'))
+password_label = Entry(master=input_frame, textvariable= password_string, font=('Calibri 20'),fg="black",bg="white",bd=0,state="readonly", width=10)
 copyButton = Button(master = input_frame, text='🗍', font=('Calibri', 15, 'bold'), command=CopyPasswdClick)
 
 generateButton.config(command=GenClick, font=('Calibri', 15, 'bold'))
